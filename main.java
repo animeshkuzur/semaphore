@@ -31,6 +31,9 @@ class main{
 					
 					
 				}
+				catch(FileNotFoundException ex) {
+            		System.out.println("Unable to open file '" + filename + "'");                
+        		}
 		   		catch(Exception ex){
 		   			System.out.println("Something went terribly wrong. Stay Calm!");
 				}
@@ -46,7 +49,7 @@ class main{
 					
 					while(b>=0){
 						s1.acquire();
-						FileWriter fileWriter = new FileWriter(filename);
+						FileWriter fileWriter = new FileWriter(filename,true);
 						BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 						System.out.println("write thread executing.");
 						bufferedWriter.write("#line "+b);
@@ -58,6 +61,9 @@ class main{
 					}
 					
 				}
+				catch(FileNotFoundException ex) {
+        		    System.out.println("Unable to open file '" + filename + "'");                
+        		}
 		   		catch(Exception ex){
 		   			System.out.println("Something went terribly wrong. Stay Calm!");
 				}
